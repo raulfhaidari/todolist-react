@@ -1,6 +1,5 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 
-let addId = 0;
 
 function App() {
 
@@ -11,17 +10,16 @@ function App() {
         !(add.length === 0 || !add.trim()) &&
             setInputText([
                 ...inputText, 
-                { id:  addId++, add: add}
+                { id: crypto.randomUUID(), add: add}
             ])
         setAdd("")
-    };
 
+    };
+    
     function handleChange(event) {
         setAdd(event.target.value)    
         event.preventDefault()
     };
-
-
 
     return(
         <div className='container'>
