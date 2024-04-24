@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import ToDoItem from './ToDoItem';
 
 
 
@@ -8,11 +9,7 @@ function App() {
     const [inputText, setInputText] = useState([]);
 
     function handleClick() {
-        !(add.length === 0 || !add.trim()) &&
-            setInputText([
-                ...inputText, 
-                { id: crypto.randomUUID(), add: add}
-            ])
+            setInputText([ ...inputText, add ])
         setAdd("")
 
     };
@@ -43,12 +40,12 @@ function App() {
             <div>
                 <ul>
                     {inputText.map((newNote, index) => (
-                        <li key={newNote.id}>
-                            {newNote.add} 
-                            <button style={{border: "1px solid black", margin: "5px"}} onClick={() =>handleDelete(index)}>
-                                Delete
-                            </button>
-                        </li>                        
+                        <ToDoItem 
+                            key={index}
+                            id={index}
+                            text={newNote}
+                            onChecked={handleDelete}
+                        />
                     ))}
                     
                 </ul>
