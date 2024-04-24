@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 
+
 function App() {
 
     const [add, setAdd] = useState("")
@@ -43,9 +44,11 @@ function App() {
                 <ul>
                     {inputText.map((newNote, index) => (
                         <li key={newNote.id}>
-                            {newNote.add} <button onClick={() =>handleDelete(index)}>Delete</button>
-                        </li>
-                        
+                            {newNote.add} 
+                            <button style={{border: "1px solid black", margin: "5px"}} onClick={() =>handleDelete(index)}>
+                                Delete
+                            </button>
+                        </li>                        
                     ))}
                     
                 </ul>
