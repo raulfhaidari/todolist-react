@@ -15,6 +15,12 @@ function App() {
         setAdd("")
 
     };
+
+    function handleDelete (index) {
+        const newInputText = [...inputText];
+        newInputText.splice(index, 1);
+        setInputText(newInputText);
+    };
     
     function handleChange(event) {
         setAdd(event.target.value)    
@@ -35,10 +41,11 @@ function App() {
             </div>
             <div>
                 <ul>
-                    {inputText.map(newNote => (
+                    {inputText.map((newNote, index) => (
                         <li key={newNote.id}>
-                            {newNote.add} 
+                            {newNote.add} <button onClick={() =>handleDelete(index)}>Delete</button>
                         </li>
+                        
                     ))}
                     
                 </ul>
